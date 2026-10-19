@@ -1,150 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casenova Connects | South Africa's Student Opportunity Hub</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{font-family:'Plus Jakarta Sans',sans-serif}
-  .view{position:fixed;inset:0;width:100%;height:100%;overflow-y:auto;transform:translateX(100%);transition:transform .5s cubic-bezier(0.16,1,0.3,1);z-index:10;background:#f8fafc}
-  .view.active{transform:translateX(0)}
-  .view.exit-left{transform:translateX(-30%);opacity:0}
-  .drawer{position:fixed;inset:0;z-index:70;pointer-events:none}
-  .drawer.open{pointer-events:auto}
-  .drawer-bg{position:absolute;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(8px);opacity:0;transition:.3s}
-  .drawer.open .drawer-bg{opacity:1}
-  .drawer-box{position:absolute;top:0;right:0;width:100%;max-width:540px;height:100%;background:#fff;transform:translateX(100%);transition:transform .5s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.15)}
-  .drawer.open .drawer-box{transform:translateX(0)}
-  .glass{background:rgba(255,255,255,.8);backdrop-filter:blur(16px);border:1px solid rgba(226,232,240,.8)}
-</style>
-</head>
-<body class="bg-[#f8fafc] antialiased">
-
-<!-- PAGE 1 -->
-<div id="view-home" class="view active">
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-32 -right-32 w-[600px] h-[600px] bg-gradient-to-br from-violet-200 to-orange-100 rounded-full blur-[100px] opacity-60"></div>
-    <div class="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-gradient-to-tr from-blue-200 to-violet-200 rounded-full blur-[100px] opacity-50"></div>
-  </div>
-  
-  <div class="relative min-h-screen flex flex-col">
-    <nav class="flex justify-between items-center p-6 md:p-8 max-w-7xl mx-auto w-full">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold">C</div>
-        <span class="font-extrabold text-slate-900">Casenova Connects</span>
-      </div>
-      <button onclick="toggleModal('aps-modal')" class="px-4 py-2 bg-white border shadow-sm rounded-xl text-sm font-bold">APS Calculator</button>
-    </nav>
-
-    <div class="flex-1 flex flex-col items-center justify-center p-6 text-center max-w-4xl mx-auto -mt-12">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border shadow-sm text-xs font-bold text-slate-600 mb-6">
-        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> Trusted by 10,000+ South African Learners
-      </div>
-      <h1 class="text-5xl md:text-7xl font-[800] tracking-tight text-slate-900 leading-[0.95]">Education<br>made <span class="bg-gradient-to-r from-violet-600 to-orange-500 bg-clip-text text-transparent">simple.</span></h1>
-      <p class="mt-6 text-lg text-slate-600 max-w-2xl leading-relaxed font-medium">
-        Casenova Connects simplifies your journey after matric. We centralize verified entry requirements, official prospectuses, and direct application portals — eliminating misinformation and missed deadlines. One platform, your complete future.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-3">
-        <button onclick="goTo('view-choose')" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-xl shadow-slate-900/20 hover:bg-black hover:scale-[1.02] transition">Find Your Opportunity →</button>
-        <div class="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 px-4"><div class="flex -space-x-2"><div class="w-7 h-7 rounded-full bg-violet-200 border-2 border-white"></div><div class="w-7 h-7 rounded-full bg-orange-200 border-2 border-white"></div><div class="w-7 h-7 rounded-full bg-blue-200 border-2 border-white"></div></div> Used by learners nationwide</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE 2 -->
-<div id="view-choose" class="view">
-  <div class="min-h-screen p-6 md:p-12 max-w-6xl mx-auto">
-    <div class="flex justify-between items-center mb-10">
-      <button onclick="goTo('view-home')" class="px-4 py-2 glass rounded-xl font-bold text-sm">← Back to Home</button>
-      <span class="text-xs font-bold tracking-widest text-slate-400 uppercase">Step 1 of 2 • Choose Interest</span>
-    </div>
-    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Select your<br>career pathway</h2>
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
-      <button onclick="openList('university')" class="group p-7 bg-white rounded-[24px] border hover:border-violet-400 hover:shadow-2xl hover:shadow-violet-500/10 text-left transition-all"><div class="w-12 h-12 bg-violet-600 text-white rounded-2xl flex items-center justify-center font-bold group-hover:scale-110 transition">U</div><div class="mt-5 font-extrabold text-lg">Universities</div><p class="text-sm text-slate-500 mt-1 leading-relaxed">Bachelor's Degrees, Diplomas & Higher Certificates from all 26 public universities.</p></button>
-      <button onclick="openList('tvet')" class="group p-7 bg-white rounded-[24px] border hover:border-orange-400 hover:shadow-2xl text-left transition-all"><div class="w-12 h-12 bg-orange-500 text-white rounded-2xl flex items-center justify-center font-bold group-hover:scale-110 transition">T</div><div class="mt-5 font-extrabold text-lg">TVET Colleges</div><p class="text-sm text-slate-500 mt-1 leading-relaxed">NATED & NCV programmes focused on practical and trade skills.</p></button>
-      <button onclick="openList('bursary')" class="group p-7 bg-white rounded-[24px] border hover:border-emerald-400 hover:shadow-2xl text-left transition-all"><div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center font-bold group-hover:scale-110 transition">B</div><div class="mt-5 font-extrabold text-lg">Bursaries</div><p class="text-sm text-slate-500 mt-1 leading-relaxed">NSFAS and private sector funding to cover your studies.</p></button>
-      <button onclick="openList('nursing')" class="group p-7 bg-white rounded-[24px] border hover:border-pink-400 hover:shadow-2xl text-left transition-all"><div class="w-12 h-12 bg-pink-600 text-white rounded-2xl flex items-center justify-center font-bold">N</div><div class="mt-5 font-extrabold text-lg">Nursing</div><p class="text-sm text-slate-500 mt-1">Accredited nursing colleges and diplomas.</p></button>
-      <button onclick="openList('internship')" class="group p-7 bg-white rounded-[24px] border hover:border-blue-400 hover:shadow-2xl text-left transition-all"><div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold">I</div><div class="mt-5 font-extrabold text-lg">Internships</div><p class="text-sm text-slate-500 mt-1">Graduate and workplace experience programmes.</p></button>
-      <button onclick="openList('seta')" class="group p-7 bg-white rounded-[24px] border hover:border-amber-400 hover:shadow-2xl text-left transition-all"><div class="w-12 h-12 bg-amber-500 text-white rounded-2xl flex items-center justify-center font-bold">S</div><div class="mt-5 font-extrabold text-lg">SETA Learnerships</div><p class="text-sm text-slate-500 mt-1">Paid, SETA-accredited skills development.</p></button>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE 3 -->
-<div id="view-list" class="view">
-  <div class="min-h-screen flex flex-col">
-    <div class="sticky top-0 z-20 glass border-b px-6 py-4">
-      <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
-        <div class="flex items-center gap-4"><button onclick="goTo('view-choose')" class="w-10 h-10 bg-slate-900 text-white rounded-xl">←</button><div><h3 id="list-title" class="font-extrabold text-lg">Universities</h3><p id="list-count" class="text-xs text-slate-500 font-semibold">Loading opportunities</p></div></div>
-        <input id="search" oninput="renderList()" placeholder="Search institution, province..." class="px-5 py-3 bg-white border rounded-2xl text-sm w-72 outline-none focus:border-violet-500">
-      </div>
-    </div>
-    <div id="list-grid" class="p-6 md:p-10 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  </div>
-</div>
-
-<div id="drawer" class="drawer"><div class="drawer-bg" onclick="closeDrawer()"></div><div class="drawer-box p-8"><div class="flex justify-between items-start mb-6"><span id="drawer-tag" class="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold tracking-widest rounded-full uppercase">University</span><button onclick="closeDrawer()" class="w-10 h-10 bg-slate-100 rounded-full">✕</button></div><div id="drawer-content"></div><div id="drawer-footer" class="pt-8 mt-8 border-t"></div></div></div>
-
-<div id="aps-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-md hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-[28px] max-w-md w-full p-7 shadow-2xl">
-    <div class="flex justify-between items-center mb-6"><h3 class="text-xl font-extrabold">APS Calculator</h3><button onclick="toggleModal('aps-modal')" class="w-8 h-8 bg-slate-100 rounded-full">✕</button></div>
-    <div class="space-y-3">
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 1</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 2</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 3</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 4</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 5</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-      <div class="flex gap-3"><span class="text-xs font-bold w-14 mt-2">SUB 6</span><input type="number" placeholder="%" class="aps-mark w-full px-4 py-3 bg-slate-50 border rounded-xl text-sm outline-none focus:border-violet-500"></div>
-    </div>
-    <div class="mt-7 p-5 bg-slate-900 rounded-2xl flex justify-between items-center text-white"><div><div class="text-[10px] tracking-widest opacity-60 font-bold">YOUR APS</div><div id="calculated-aps" class="text-3xl font-extrabold">0</div></div><button onclick="applyApsFilter()" class="px-6 py-3 bg-white text-slate-900 rounded-xl font-bold text-sm">Filter Results</button></div>
-  </div>
-</div>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Casenova Connects</title><script src="https://cdn.tailwindcss.com"></script><style>*{font-family:sans-serif}.view{position:fixed;inset:0;width:100%;height:100%;overflow-y:auto;transform:translateX(100%);transition:.45s;z-index:10;background:#f8fafc}.view.active{transform:translateX(0)}.drawer{position:fixed;inset:0;z-index:70;pointer-events:none}.drawer.open{pointer-events:auto}.drawer-bg{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:.3s}.drawer.open .drawer-bg{opacity:1}.drawer-box{position:absolute;top:0;right:0;width:100%;max-width:520px;height:100%;background:#fff;transform:translateX(100%);transition:.45s;overflow-y:auto}.drawer.open .drawer-box{transform:translateX(0)}</style></head><body>
+<div id="view-home" class="view active"><div class="min-h-screen flex flex-col items-center justify-center p-6 text-center"><h1 class="text-5xl font-extrabold">Your Future<br><span class="text-violet-600">Starts Here</span></h1><p class="mt-4 text-slate-600 max-w-xl">We help learners find Universities, TVET, Bursaries, Nursing & Internships — all in one place with official apply links.</p><div class="mt-8 flex gap-3"><button onclick="goTo('view-choose')" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold">Explore Opportunities →</button><button onclick="toggleModal('aps-modal')" class="px-6 py-4 bg-violet-100 text-violet-700 rounded-2xl font-bold">APS Calc</button></div></div></div>
+<div id="view-choose" class="view"><div class="p-8 max-w-5xl mx-auto"><button onclick="goTo('view-home')" class="px-4 py-2 bg-white border rounded-xl font-bold mb-8">← Home</button><h2 class="text-4xl font-extrabold">Choose Your Path</h2><div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4"><button onclick="openList('university')" class="p-6 bg-white border rounded-2xl text-left font-bold">🎓 Universities</button><button onclick="openList('tvet')" class="p-6 bg-white border rounded-2xl text-left font-bold">🏫 TVET</button><button onclick="openList('bursary')" class="p-6 bg-white border rounded-2xl text-left font-bold">💰 Bursaries</button><button onclick="openList('nursing')" class="p-6 bg-white border rounded-2xl text-left font-bold">🩺 Nursing</button><button onclick="openList('internship')" class="p-6 bg-white border rounded-2xl text-left font-bold">💼 Internships</button><button onclick="openList('seta')" class="p-6 bg-white border rounded-2xl text-left font-bold">⚡ SETA</button></div></div></div>
+<div id="view-list" class="view"><div class="sticky top-0 bg-white border-b p-4 flex justify-between items-center"><div class="flex gap-3 items-center"><button onclick="goTo('view-choose')" class="px-3 py-2 bg-slate-900 text-white rounded-xl">←</button><div><h3 id="list-title" class="font-bold">List</h3><p id="list-count" class="text-xs">0</p></div></div><input id="search" oninput="renderList()" placeholder="Search..." class="px-4 py-2 bg-slate-100 rounded-xl text-sm"></div><div id="list-grid" class="p-6 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto"></div></div>
+<div id="drawer" class="drawer"><div class="drawer-bg" onclick="closeDrawer()"></div><div class="drawer-box p-7"><div class="flex justify-between mb-6"><span id="drawer-tag" class="px-3 py-1 bg-slate-900 text-white text-xs rounded-full">TAG</span><button onclick="closeDrawer()" class="w-8 h-8 bg-slate-100 rounded-full">✕</button></div><div id="drawer-content"></div><div id="drawer-footer" class="mt-6 pt-6 border-t"></div></div></div>
+<div id="aps-modal" class="fixed inset-0 z-50 bg-black/60 hidden flex items-center justify-center p-4"><div class="bg-white rounded-3xl p-6 w-full max-w-sm"><div class="flex justify-between mb-4"><h3 class="font-extrabold">APS Calculator</h3><button onclick="toggleModal('aps-modal')">✕</button></div><div class="space-y-2"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 1 %"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 2 %"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 3 %"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 4 %"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 5 %"><input class="aps-mark w-full p-3 bg-slate-100 rounded-xl" type="number" placeholder="Subject 6 %"></div><div class="mt-4 p-4 bg-slate-900 text-white rounded-xl flex justify-between items-center"><div><div class="text-xs opacity-60">APS</div><div id="calculated-aps" class="text-2xl font-bold">0</div></div><button onclick="applyApsFilter()" class="px-4 py-2 bg-white text-black rounded-xl font-bold">Filter</button></div></div></div>
 <script>
-const dataset=[
- {id:1,name:"University of Cape Town",type:"university",province:"Western Cape",minAps:30,status:"Open",description:"Africa's leading research university. World-class degrees in Commerce, Science, Humanities.",requirements:"Bachelor pass with English 5, Maths 5. Faculty-specific APS applies.",link:"https://www.uct.ac.za/apply"},
- {id:2,name:"Wits University",type:"university",province:"Gauteng",minAps:34,status:"Open",description:"Premier urban university for Engineering, Health Sciences and Law.",requirements:"APS 34+ with Pure Mathematics and English 5 minimum.",link:"https://www.wits.ac.za/undergraduate/apply-to-wits/"},
- {id:3,name:"NSFAS Bursary 2026",type:"bursary",province:"National",minAps:0,status:"Closing Soon",description:"Fully funded bursary covering tuition, accommodation and living allowance.",requirements:"SA citizen. Combined household income below R350,000.",link:"https://www.nsfas.org.za"},
- {id:4,name:"Tshwane South TVET College",type:"college",province:"Gauteng",minAps:18,status:"Open",description:"Accredited NATED and NCV programmes for engineering and business.",requirements:"Grade 9 for N1, Grade 12 for N4 Business Studies.",link:"https://www.tsc.edu.za"},
- {id:5,name:"Gauteng College of Nursing",type:"nursing",province:"Gauteng",minAps:27,status:"Open",description:"4-year Diploma in Nursing with clinical placement.",requirements:"English 4, Life Sciences 4, Mathematics 3 or Maths Lit 4.",link:"https://nursingintake.gauteng.gov.za"},
- {id:6,name:"Capitec Bank Learnership",type:"learnership",province:"National",minAps:20,status:"Open",description:"12-month SETA-accredited learnership with monthly stipend.",requirements:"Age 18-35, Grade 12 with English and Mathematics.",link:"https://www.capitecbank.co.za/careers/"}
-];
+const dataset=[{name:"UCT",type:"university",province:"WC",minAps:30,status:"Open",description:"Africa's top university.",requirements:"Bachelor pass English 5 Maths 5",link:"https://www.uct.ac.za/apply"},{name:"Wits",type:"university",province:"Gauteng",minAps:34,status:"Open",description:"Engineering and Health leader.",requirements:"APS 34+ Maths 5",link:"https://www.wits.ac.za/apply/"},{name:"UP",type:"university",province:"Gauteng",minAps:30,status:"Open",description:"Vet and Engineering.",requirements:"APS 30+",link:"https://www.up.ac.za/apply"},{name:"UJ",type:"university",province:"Gauteng",minAps:26,status:"Open",description:"Tech and Business.",requirements:"APS 26+",link:"https://www.uj.ac.za/apply"},{name:"UNISA",type:"university",province:"National",minAps:20,status:"Open",description:"Distance learning.",requirements:"APS 20+",link:"https://www.unisa.ac.za/apply"},{name:"Tshwane South TVET",type:"college",province:"Gauteng",minAps:18,status:"Open",description:"NATED Engineering",requirements:"Grade 9",link:"https://www.tsc.edu.za"},{name:"False Bay TVET",type:"college",province:"WC",minAps:18,status:"Open",description:"Tourism and IT",requirements:"Grade 9",link:"https://www.falsebaycollege.co.za"},{name:"NSFAS",type:"bursary",province:"National",minAps:0,status:"Closing Soon",description:"Covers everything.",requirements:"Income <R350k",link:"https://www.nsfas.org.za"},{name:"Funza Lushaka",type:"bursary",province:"National",minAps:24,status:"Open",description:"Teaching bursary.",requirements:"Bachelor pass",link:"https://www.funzalushaka.doe.gov.za"},{name:"Gauteng Nursing",type:"nursing",province:"Gauteng",minAps:27,status:"Open",description:"4-year Diploma",requirements:"English 4 Life Sci 4",link:"https://nursingintake.gauteng.gov.za"},{name:"Capitec Learnership",type:"learnership",province:"National",minAps:20,status:"Open",description:"12-month paid.",requirements:"Grade 12",link:"https://www.capitecbank.co.za/careers/"},{name:"SAPS Traineeship",type:"learnership",province:"National",minAps:20,status:"Open",description:"Police training.",requirements:"Grade 12",link:"https://www.saps.gov.za/careers"},{name:"BANKSETA",type:"seta",province:"National",minAps:18,status:"Open",description:"Banking SETA",requirements:"Grade 12",link:"https://www.bankseta.org.za"}];
 let currentCategory='',currentView='view-home',userApsScore=null;
-function goTo(id){document.querySelectorAll('.view').forEach(v=>{v.classList.remove('active');if(v.id===currentView)v.classList.add('exit-left')});setTimeout(()=>{document.querySelectorAll('.view').forEach(v=>v.classList.remove('exit-left'))},500);document.getElementById(id).classList.add('active');currentView=id;window.scrollTo(0,0)}
+function goTo(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');currentView=id}
 function openList(cat){currentCategory=cat;document.getElementById('list-title').innerText=cat.toUpperCase();goTo('view-list');renderList()}
-function renderList(){
- const grid=document.getElementById('list-grid');const q=(document.getElementById('search').value||'').toLowerCase();let items=dataset;
- if(currentCategory){items=items.filter(i=>{if(currentCategory==='university')return i.type==='university';if(currentCategory==='tvet')return i.type==='college';if(currentCategory==='bursary')return i.type==='bursary';if(currentCategory==='nursing')return i.type==='nursing';if(currentCategory==='internship')return i.type==='internship';if(currentCategory==='seta')return i.type==='learnership'||i.type==='seta';return true})}
- if(q)items=items.filter(i=>(i.name+i.province).toLowerCase().includes(q));
- if(userApsScore!==null)items=items.filter(i=>(i.minAps||0)<=userApsScore);
- document.getElementById('list-count').innerText=items.length+' verified opportunities';
- grid.innerHTML=items.map(it=>`
-  <div onclick="openDrawer(${dataset.indexOf(it)})" class="group bg-white border rounded-[24px] p-6 hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-1 cursor-pointer transition-all">
-   <div class="flex justify-between items-center"><span class="text-[10px] font-bold tracking-widest px-3 py-1 bg-slate-100 rounded-full uppercase">${it.type}</span><span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${it.status==='Open'?'bg-emerald-50 text-emerald-700':'bg-amber-50 text-amber-700'}">${it.status}</span></div>
-   <h4 class="font-extrabold text-[17px] mt-4 leading-tight group-hover:text-violet-600 transition">${it.name}</h4>
-   <p class="text-[13px] text-slate-500 mt-2 leading-relaxed line-clamp-2">${it.description}</p>
-   <div class="mt-6 flex items-center justify-between text-xs font-bold"><span class="text-slate-400">${it.province} • APS ${it.minAps}</span><span class="text-slate-900 group-hover:translate-x-1 transition">Details →</span></div>
-  </div>`).join('')||'<div class="col-span-full py-24 text-center bg-white rounded-[24px] border border-dashed">No matches found</div>';
-}
-function openDrawer(i){
- const it=dataset[i];
- document.getElementById('drawer-tag').innerText=it.type+' • '+it.province;
- document.getElementById('drawer-content').innerHTML=`
-  <h2 class="text-3xl font-extrabold leading-tight tracking-tight">${it.name}</h2>
-  <div class="mt-6 grid grid-cols-2 gap-3"><div class="p-4 bg-slate-50 rounded-2xl"><div class="text-[10px] font-bold tracking-widest text-slate-400">MIN APS</div><div class="font-extrabold text-lg">${it.minAps}</div></div><div class="p-4 bg-slate-50 rounded-2xl"><div class="text-[10px] font-bold tracking-widest text-slate-400">STATUS</div><div class="font-extrabold text-lg">${it.status}</div></div></div>
-  <div class="mt-6 p-5 bg-slate-50 rounded-2xl border"><div class="text-[11px] font-bold tracking-widest text-slate-400 uppercase">Entry Requirements & Prospectus</div><div class="mt-3 text-sm leading-relaxed font-medium text-slate-700">${it.requirements}</div></div>
-  <div class="mt-4 p-5 bg-violet-50 rounded-2xl border border-violet-100"><div class="text-xs font-bold text-violet-700">Required Documents</div><ul class="mt-2 text-sm space-y-1 text-slate-700"><li>• Certified ID Copy</li><li>• Final Grade 11 / Matric Results</li><li>• Proof of Residence</li><li>• Email & Cellphone</li></ul></div>`;
- document.getElementById('drawer-footer').innerHTML=`<a href="${it.link}" target="_blank" class="flex items-center justify-center gap-2 w-full py-4 bg-slate-900 hover:bg-black text-white font-bold rounded-2xl shadow-lg transition">Apply on Official Portal <span>↗</span></a><p class="text-[11px] text-center text-slate-400 mt-3">You will be redirected to the official institution website. No application fees via Casenova.</p>`;
- document.getElementById('drawer').classList.add('open');
-}
+function renderList(){const grid=document.getElementById('list-grid');const q=(document.getElementById('search').value||'').toLowerCase();let items=dataset;if(currentCategory){items=items.filter(i=>{if(currentCategory==='university')return i.type==='university';if(currentCategory==='tvet')return i.type==='college';if(currentCategory==='bursary')return i.type==='bursary';if(currentCategory==='nursing')return i.type==='nursing';if(currentCategory==='internship')return i.type==='internship';if(currentCategory==='seta')return i.type==='seta'||i.type==='learnership';return true})}if(q)items=items.filter(i=>i.name.toLowerCase().includes(q));if(userApsScore!==null)items=items.filter(i=>i.minAps<=userApsScore);document.getElementById('list-count').innerText=items.length+' opportunities';grid.innerHTML=items.map(it=>`<div onclick="openDrawer(${dataset.indexOf(it)})" class="bg-white border rounded-2xl p-5 cursor-pointer hover:shadow-lg"><span class="text-[10px] px-2 py-1 bg-slate-100 rounded-full uppercase font-bold">${it.type}</span><h4 class="font-bold mt-2">${it.name}</h4><p class="text-xs text-slate-500">${it.description}</p><div class="mt-2 text-xs flex justify-between"><span>${it.province} • APS ${it.minAps}</span><span>View →</span></div></div>`).join('')}
+function openDrawer(i){const it=dataset[i];document.getElementById('drawer-tag').innerText=it.type;document.getElementById('drawer-content').innerHTML=`<h2 class="text-2xl font-extrabold">${it.name}</h2><div class="mt-4 p-4 bg-slate-50 rounded-xl"><b class="text-xs">REQUIREMENTS</b><div class="text-sm mt-1">${it.requirements}</div></div>`;document.getElementById('drawer-footer').innerHTML=`<a href="${it.link}" target="_blank" class="block w-full text-center py-4 bg-slate-900 text-white rounded-xl font-bold">Apply Officially 🚀</a>`;document.getElementById('drawer').classList.add('open')}
 function closeDrawer(){document.getElementById('drawer').classList.remove('open')}
 function toggleModal(id){document.getElementById(id).classList.toggle('hidden')}
 function calculateAPS(){let t=0;document.querySelectorAll('.aps-mark').forEach(inp=>{let v=parseFloat(inp.value)||0;if(v>=80)t+=7;else if(v>=70)t+=6;else if(v>=60)t+=5;else if(v>=50)t+=4;else if(v>=40)t+=3;else if(v>=30)t+=2;else if(v>0)t+=1});document.getElementById('calculated-aps').innerText=t;return t}
 document.addEventListener('input',e=>{if(e.target.classList.contains('aps-mark'))calculateAPS()});
 function applyApsFilter(){userApsScore=calculateAPS();toggleModal('aps-modal');goTo('view-list');renderList()}
-</script>
-</body>
-</html>
+</script></body></html>
