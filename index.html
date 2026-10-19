@@ -87,13 +87,13 @@
     </div>
 
     <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">What path are you<br>looking for?</h2>
-    <p class="mt-3 text-slate-600 font-medium">Select a category to view direct entry criteria, prospectuses, and application links.</p>
+    <p class="mt-3 text-slate-600 font-medium">Select a category to view direct entry criteria, statuses, and application links.</p>
 
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <button onclick="openList('university')" class="p-6 bg-white hover:bg-violet-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-violet-400 text-left transition group">
         <div class="w-12 h-12 bg-violet-100 text-violet-600 text-2xl flex items-center justify-center rounded-2xl mb-4 group-hover:scale-110 transition">🎓</div>
         <div class="font-extrabold text-lg text-slate-900">Universities</div>
-        <div class="text-sm text-slate-500 mt-1">Degrees, Diplomas & Higher Certs</div>
+        <div class="text-sm text-slate-500 mt-1">Degrees, Diplomas & Open/Closed Status</div>
       </button>
 
       <button onclick="openList('tvet')" class="p-6 bg-white hover:bg-orange-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-orange-400 text-left transition group">
@@ -105,13 +105,13 @@
       <button onclick="openList('bursary')" class="p-6 bg-white hover:bg-emerald-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-emerald-400 text-left transition group">
         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 text-2xl flex items-center justify-center rounded-2xl mb-4 group-hover:scale-110 transition">💰</div>
         <div class="font-extrabold text-lg text-slate-900">Bursaries & Funding</div>
-        <div class="text-sm text-slate-500 mt-1">NSFAS & Private Bursaries</div>
+        <div class="text-sm text-slate-500 mt-1">NSFAS, Funza Lushaka & ISFAP</div>
       </button>
 
       <button onclick="openList('nursing')" class="p-6 bg-white hover:bg-pink-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-pink-400 text-left transition group">
         <div class="w-12 h-12 bg-pink-100 text-pink-600 text-2xl flex items-center justify-center rounded-2xl mb-4 group-hover:scale-110 transition">🩺</div>
         <div class="font-extrabold text-lg text-slate-900">Nursing Colleges</div>
-        <div class="text-sm text-slate-500 mt-1">Gauteng, KZN & Provincial Nursing</div>
+        <div class="text-sm text-slate-500 mt-1">Provincial & Private Nursing Intakes</div>
       </button>
 
       <button onclick="openList('internship')" class="p-6 bg-white hover:bg-blue-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-blue-400 text-left transition group">
@@ -122,7 +122,7 @@
 
       <button onclick="openList('seta')" class="p-6 bg-white hover:bg-amber-50/50 rounded-3xl shadow-sm border border-slate-200 hover:border-amber-400 text-left transition group">
         <div class="w-12 h-12 bg-amber-100 text-amber-600 text-2xl flex items-center justify-center rounded-2xl mb-4 group-hover:scale-110 transition">⚡</div>
-        <div class="font-extrabold text-lg text-slate-900">SETAs & Apprenticeships</div>
+        <div class="font-extrabold text-lg text-slate-900">SETAs & Learnerships</div>
         <div class="text-sm text-slate-500 mt-1">Paid Skills & Artisan Training</div>
       </button>
     </div>
@@ -158,12 +158,12 @@
       <button onclick="clearApsFilter()" class="underline text-violet-200 hover:text-white">Clear Filter</button>
     </div>
 
-    <!-- List Items -->
+    <!-- List Items Grid -->
     <div id="list-grid" class="p-4 md:p-8 max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
   </div>
 </div>
 
-<!-- DRAWER / DETAIL SLIDE-OVER -->
+<!-- DRAWER / DETAIL SLIDE-OVER (NO SCROLL JUMP) -->
 <div id="drawer" class="drawer">
   <div class="drawer-bg" onclick="closeDrawer()"></div>
   <div class="drawer-box p-6 md:p-8 flex flex-col justify-between custom-scrollbar">
@@ -211,85 +211,248 @@
   </div>
 </div>
 
-<script src="data.js"></script>
 <script>
-// --- DEFAULT DATA FALLBACK IN CASE DATA.JS IS NOT LOADED ---
-const DEFAULT_OPPORTUNITIES = [
+// --- COMPREHENSIVE DATASET (UNIVERSITIES, TVET, BURSARIES, NURSING, ETC.) ---
+const dataset = [
+  // --- UNIVERSITIES (OPEN & CLOSED) ---
   {
     id: 1,
-    name: "University of Cape Town (UCT)",
+    name: "University of Johannesburg (UJ)",
     type: "university",
-    province: "Western Cape",
-    minAps: 30,
+    province: "Gauteng",
+    minAps: 28,
     status: "Open",
-    closingDate: "31 Aug",
-    description: "South Africa's top-ranked higher education institution offering degrees across Humanities, Science, Commerce, and Health.",
-    requirements: "National Senior Certificate (NSC) with Bachelor endorsement. Specific subject minimums (Maths & English) apply per faculty.",
-    link: "https://www.uct.ac.za/apply"
+    closingDate: "31 October 2026",
+    description: "A premier metropolitan university offering diverse undergraduate degrees with high employability rates.",
+    requirements: "NSC Bachelor's pass. APS 28+ depending on faculty. Free online application.",
+    link: "https://www.uj.ac.za/study/apply/"
   },
   {
     id: 2,
+    name: "University of Mpumalanga (UMP)",
+    type: "university",
+    province: "Mpumalanga",
+    minAps: 24,
+    status: "Open",
+    closingDate: "30 November 2026",
+    description: "Offers state-of-the-art undergraduate diplomas, Bachelor's degrees, and advanced programmes.",
+    requirements: "NSC Bachelor's or Diploma pass with qualifying APS score. Late closing window.",
+    link: "https://www.ump.ac.za"
+  },
+  {
+    id: 3,
+    name: "Walter Sisulu University (WSU)",
+    type: "university",
+    province: "Eastern Cape",
+    minAps: 20,
+    status: "Open",
+    closingDate: "31 October 2026",
+    description: "Comprehensive university focused on technological and career-oriented academic programmes.",
+    requirements: "NSC pass with specific subject requirements. General closing extended.",
+    link: "https://www.wsu.ac.za"
+  },
+  {
+    id: 4,
+    name: "University of Fort Hare (UFH)",
+    type: "university",
+    province: "Eastern Cape",
+    minAps: 22,
+    status: "Open",
+    closingDate: "31 October 2026",
+    description: "Historic university renowned for strong law, management, and social science faculties.",
+    requirements: "NSC pass with standard statutory university admission requirements.",
+    link: "https://www.ufh.ac.za"
+  },
+  {
+    id: 5,
+    name: "Tshwane University of Technology (TUT)",
+    type: "university",
+    province: "Gauteng",
+    minAps: 20,
+    status: "Open",
+    closingDate: "Space-Dependent / Late Enquiries",
+    description: "South Africa's largest residential higher education institution focusing on career-ready technical skills.",
+    requirements: "NSC Diploma or Bachelor's pass. Subject marks dictate placement.",
+    link: "https://www.tut.ac.za"
+  },
+  {
+    id: 6,
+    name: "University of Pretoria (UP)",
+    type: "university",
+    province: "Gauteng",
+    minAps: 30,
+    status: "Closed",
+    closingDate: "Closed (30 June 2026)",
+    description: "Top research-intensive South African university with elite programmes in Law, Engineering, and Veterinary Science.",
+    requirements: "Strict competitive APS requirements. Applications for the academic intake are closed.",
+    link: "https://www.up.ac.za"
+  },
+  {
+    id: 7,
     name: "University of the Witwatersrand (Wits)",
     type: "university",
     province: "Gauteng",
     minAps: 34,
-    status: "Open",
-    closingDate: "30 Sep",
-    description: "Leading research university located in Johannesburg offering engineering, medicine, law, and humanities.",
-    requirements: "Minimum APS of 34+. Compulsory Pure Mathematics and Physical Science required for Engineering and Health Sciences.",
+    status: "Closed",
+    closingDate: "Closed (30 September 2026)",
+    description: "World-class research institution located in Johannesburg offering prestigious professional degrees.",
+    requirements: "High APS scores and strict faculty-specific criteria. Intake applications are closed.",
     link: "https://www.wits.ac.za/undergraduate/apply-to-wits/"
   },
   {
-    id: 3,
+    id: 8,
+    name: "University of Cape Town (UCT)",
+    type: "university",
+    province: "Western Cape",
+    minAps: 30,
+    status: "Closed",
+    closingDate: "Closed (31 July 2026)",
+    description: "Consistently ranked as Africa's top university, offering elite degree options across all faculties.",
+    requirements: "Extremely competitive faculty entry points. Undergraduate window is closed.",
+    link: "https://www.uct.ac.za/apply"
+  },
+  {
+    id: 9,
+    name: "Stellenbosch University (SU)",
+    type: "university",
+    province: "Western Cape",
+    minAps: 30,
+    status: "Closed",
+    closingDate: "Closed (31 July 2026)",
+    description: "Leading public research university known for academic excellence and diverse faculty offerings.",
+    requirements: "No late applications considered for intake.",
+    link: "https://www.sun.ac.za"
+  },
+  {
+    id: 10,
+    name: "University of the Free State (UFS)",
+    type: "university",
+    province: "Free State",
+    minAps: 25,
+    status: "Closed",
+    closingDate: "Closed (30 September 2026)",
+    description: "Multicampus institution offering a vibrant academic environment in Bloemfontein.",
+    requirements: "Applications closed. No late undergraduate applications accepted.",
+    link: "https://www.ufs.ac.za"
+  },
+
+  // --- TVET COLLEGES ---
+  {
+    id: 11,
+    name: "Sedibeng TVET College",
+    type: "college",
+    province: "Gauteng",
+    minAps: 15,
+    status: "Open",
+    closingDate: "Walk-ins / Enquire for Space",
+    description: "Offers theoretical and practical training in engineering, business, and utility studies.",
+    requirements: "Certified copy of ID, latest school results, and proof of residence.",
+    link: "https://www.sedcol.co.za"
+  },
+  {
+    id: 12,
+    name: "South West Gauteng TVET College",
+    type: "college",
+    province: "Gauteng",
+    minAps: 15,
+    status: "Open",
+    closingDate: "Check Portal Availability",
+    description: "Equipping students with marketable vocational skills across multiple Gauteng campuses.",
+    requirements: "Certified ID document, guardian details, and latest academic results.",
+    link: "https://swgtvet.co.za"
+  },
+  {
+    id: 13,
+    name: "False Bay TVET College",
+    type: "college",
+    province: "Western Cape",
+    minAps: 15,
+    status: "Open",
+    closingDate: "Check Programme Availability",
+    description: "Award-winning TVET college offering vocational, occupational, and skills programmes.",
+    requirements: "Grade 9–12 pass with specific subject thresholds for engineering fields.",
+    link: "https://falsebaycollege.co.za"
+  },
+  {
+    id: 14,
+    name: "Tshwane North TVET College (TNC)",
+    type: "college",
+    province: "Gauteng",
+    minAps: 15,
+    status: "Closed",
+    closingDate: "Closed (30 September 2026)",
+    description: "Quality vocational and occupational education and training (NCV & Report 191/Nated).",
+    requirements: "Grade 9, 10, 11, or 12 certificate depending on the chosen vocational level.",
+    link: "https://tnc.edu.za"
+  },
+
+  // --- BURSARIES & FUNDING ---
+  {
+    id: 15,
     name: "NSFAS Bursary Scheme",
     type: "bursary",
     province: "National",
     minAps: 0,
-    status: "Closing Soon",
-    closingDate: "31 Jan",
+    status: "Open",
+    closingDate: "Expected Nov/Dec 2026",
     description: "Government financial aid funding tertiary tuition, accommodation, books, and living allowances for deserving learners.",
-    requirements: "South African Citizen. Combined household income must not exceed R350,000 per annum (R600,000 for students with disabilities).",
+    requirements: "South African Citizen. Combined gross household income must not exceed R350,000 per annum (R600,000 for students with disabilities).",
     link: "https://www.nsfas.org.za"
   },
   {
-    id: 4,
-    name: "Tshwane South TVET College",
-    type: "college",
-    province: "Gauteng",
-    minAps: 18,
+    id: 16,
+    name: "Funza Lushaka Bursary Programme",
+    type: "bursary",
+    province: "National",
+    minAps: 25,
     status: "Open",
-    closingDate: "Ongoing",
-    description: "Public TVET college providing NATED (N1-N6) engineering studies, business management, and practical trade skills.",
-    requirements: "Passed Grade 9 for N1 Engineering. Passed Grade 12 (Diploma/Higher Certificate entry) for Business Studies.",
-    link: "https://www.tsc.edu.za"
+    closingDate: "Annual Window",
+    description: "Multi-year bursary for students pursuing a Bachelor of Education (BEd) or recognized teaching PGCE.",
+    requirements: "Strong academic track record, commitment to teach at a public school upon graduation.",
+    link: "https://www.funzalushaka.doe.gov.za"
   },
   {
-    id: 5,
+    id: 17,
+    name: "ISFAP Bursary (Missing Middle Funding)",
+    type: "bursary",
+    province: "National",
+    minAps: 28,
+    status: "Open",
+    closingDate: "Check Partner University Dates",
+    description: "Comprehensive funding model for students from households earning between R350,000 and R600,000 annually.",
+    requirements: "South African citizen, registration at a participating ISFAP university for scarce skills courses.",
+    link: "https://www.isfap.org.za"
+  },
+
+  // --- NURSING COLLEGES ---
+  {
+    id: 18,
     name: "Gauteng College of Nursing (GCON)",
     type: "nursing",
     province: "Gauteng",
     minAps: 27,
     status: "Closed",
-    closingDate: "31 Jul",
+    closingDate: "Closed (31 July 2026)",
     description: "4-Year Diploma in Nursing offering practical clinical experience in Gauteng state hospitals.",
     requirements: "NSC with English (4), Life Sciences (4), and Mathematics (3) or Math Lit (4). Age limit: 35 years.",
     link: "https://nursingintake.gauteng.gov.za"
   },
+
+  // --- INTERNSHIPS & LEARNERSHIPS ---
   {
-    id: 6,
+    id: 19,
     name: "Capitec Bank ICT Learnership",
     type: "learnership",
     province: "National",
     minAps: 20,
     status: "Open",
-    closingDate: "15 Dec",
+    closingDate: "15 Dec 2026",
     description: "12-month structured skills program combining classroom learning with paid workplace experience in IT and Banking.",
     requirements: "SA Citizen aged 18-34. Grade 12 Certificate with English & Pure Maths / Mathematical Literacy.",
     link: "https://www.capitecbank.co.za/about-us/careers/"
   }
 ];
 
-let dataset = window.OPPORTUNITIES || DEFAULT_OPPORTUNITIES;
 let currentCategory = '', currentView = 'view-home';
 let userApsScore = null;
 let savedIds = JSON.parse(localStorage.getItem('casenova_bookmarks') || '[]');
@@ -315,7 +478,7 @@ function goTo(id) {
 function openList(cat) {
   currentCategory = cat;
   const titles = {
-    university: 'Universities',
+    university: 'Universities (Open & Closed)',
     tvet: 'TVET Colleges',
     bursary: 'Bursaries & Funding',
     nursing: 'Nursing Colleges',
@@ -336,13 +499,13 @@ function renderList() {
 
   // Category filter
   if(currentCategory === 'saved') {
-    items = items.filter(i => savedIds.includes(i.id || i.name));
+    items = items.filter(i => savedIds.includes(i.id));
   } else if(currentCategory) {
     items = items.filter(i => {
       if(currentCategory === 'university') return i.type === 'university';
       if(currentCategory === 'tvet') return i.type === 'college';
       if(currentCategory === 'bursary') return i.type === 'bursary';
-      if(currentCategory === 'nursing') return i.type === 'nursing' || (i.name && i.name.toLowerCase().includes('nursing'));
+      if(currentCategory === 'nursing') return i.type === 'nursing';
       if(currentCategory === 'internship') return i.type === 'internship';
       if(currentCategory === 'seta') return i.type === 'seta' || i.type === 'learnership';
       return true;
@@ -372,8 +535,8 @@ function renderList() {
   }
 
   grid.innerHTML = items.map(item => {
-    const isSaved = savedIds.includes(item.id || item.name);
-    const statusBg = item.status === 'Open' ? 'bg-emerald-100 text-emerald-700' : item.status === 'Closing Soon' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500';
+    const isSaved = savedIds.includes(item.id);
+    const statusBg = item.status === 'Open' ? 'bg-emerald-100 text-emerald-700 font-extrabold' : 'bg-rose-100 text-rose-700 font-extrabold';
 
     return `
       <div onclick="openDrawer(${dataset.indexOf(item)})" class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl hover:border-violet-300 cursor-pointer transition flex flex-col justify-between group">
@@ -381,15 +544,15 @@ function renderList() {
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="text-[10px] font-extrabold tracking-wider px-2.5 py-1 bg-slate-100 rounded-full uppercase text-slate-600">${item.type}</span>
             <div class="flex items-center gap-1.5">
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md ${statusBg}">${item.status || 'Active'}</span>
-              <button onclick="event.stopPropagation(); toggleBookmark('${item.id || item.name}')" class="text-slate-300 hover:text-amber-400 text-lg transition">
+              <span class="text-[10px] px-2 py-0.5 rounded-md ${statusBg}">Status: ${item.status}</span>
+              <button onclick="event.stopPropagation(); toggleBookmark(${item.id})" class="text-slate-300 hover:text-amber-400 text-lg transition">
                 ${isSaved ? '⭐' : '☆'}
               </button>
             </div>
           </div>
           
           <h4 class="font-extrabold text-slate-900 text-lg leading-snug group-hover:text-violet-600 transition">${item.name}</h4>
-          <p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">${item.description || 'Tap for detailed entry requirements, prospectus, and application procedures.'}</p>
+          <p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">${item.description}</p>
         </div>
 
         <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
@@ -401,18 +564,27 @@ function renderList() {
   }).join('');
 }
 
-// Drawer Engine
+// Drawer Engine (Zero Page Jump & Scroll Freeze)
 function openDrawer(index) {
+  if (typeof event !== 'undefined' && event.preventDefault) {
+    event.preventDefault();
+  }
+
   const item = dataset[index];
-  const isSaved = savedIds.includes(item.id || item.name);
-  
-  document.getElementById('drawer-tag').innerText = `${item.type} • ${item.province || 'South Africa'}`;
+  if (!item) return;
+
+  const isSaved = savedIds.includes(item.id);
+  const statusBadge = item.status === 'Open' 
+    ? `<span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-lg">🟢 Open</span>` 
+    : `<span class="px-2.5 py-1 bg-rose-50 text-rose-700 text-xs font-bold rounded-lg">🔴 Closed</span>`;
+
+  document.getElementById('drawer-tag').innerText = `${item.type.toUpperCase()} • ${item.province || 'South Africa'}`;
   document.getElementById('drawer-content').innerHTML = `
     <h2 class="text-2xl font-extrabold text-slate-900 leading-tight">${item.name}</h2>
     
-    <div class="flex items-center gap-2 mt-3">
-      <span class="px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-bold rounded-lg">${item.status || 'Active Intake'}</span>
-      ${item.closingDate ? `<span class="text-xs text-slate-500 font-semibold">Closing Date: ${item.closingDate}</span>` : ''}
+    <div class="flex items-center flex-wrap gap-2 mt-3">
+      ${statusBadge}
+      ${item.closingDate ? `<span class="text-xs text-slate-500 font-semibold">Closing/Status Date: ${item.closingDate}</span>` : ''}
     </div>
 
     <div class="mt-6 space-y-4">
@@ -435,16 +607,18 @@ function openDrawer(index) {
 
   document.getElementById('drawer-footer').innerHTML = `
     <a href="${item.link || '#'}" target="_blank" class="block w-full text-center py-4 bg-slate-900 hover:bg-black text-white font-extrabold rounded-2xl text-base shadow-lg transition">
-      Apply on Official Site 🚀
+      Visit Official Portal 🚀
     </a>
     <p class="text-[11px] text-center text-slate-400 mt-3 font-medium">Casenova Connects redirects you directly to the official portal. Applications are free.</p>
   `;
 
   document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeDrawer() {
   document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = 'auto';
 }
 
 // Bookmark Toggle
