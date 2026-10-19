@@ -180,4 +180,149 @@ window.OPPORTUNITIES = [
     requirements: "South African citizen, registration at a participating ISFAP university for scarce skills courses.",
     link: "https://www.isfap.org.za"
   }
+window.OPPORTUNITIES = [
+  // --- UNIVERSITIES ---
+  {
+    id: "uct-2026",
+    name: "University of Cape Town (UCT)",
+    type: "university",
+    province: "Western Cape",
+    status: "Open",
+    minAps: 30,
+    description: "South Africa's top-ranking research university offering undergraduate degrees across Commerce, Engineering, Humanities, Health Sciences, Law, and Science.",
+    requirements: "NSC Bachelor's Pass. Minimum APS 30+. Compulsory English & Mathematics/Maths Literacy (depending on faculty requirement).",
+    link: "https://www.uct.ac.za"
+  },
+  {
+    id: "tut-2026",
+    name: "Tshwane University of Technology (TUT)",
+    type: "university",
+    province: "Gauteng",
+    status: "Open",
+    minAps: 20,
+    description: "Leading university of technology offering career-focused diplomas and degrees in Geomatics, Engineering, ICT, Management, and Arts.",
+    requirements: "NSC Diploma or Bachelor's Pass. Minimum APS 20–28 depending on course choices.",
+    link: "https://www.tut.ac.za"
+  },
+  {
+    id: "wits-2026",
+    name: "University of the Witwatersrand (Wits)",
+    type: "university",
+    province: "Gauteng",
+    status: "Open",
+    minAps: 34,
+    description: "Premier university in Johannesburg renowned for Engineering, Health Sciences, Mining, Business, and Science qualifications.",
+    requirements: "NSC Bachelor's Pass. High academic requirements in Maths & Physical Sciences for STEM fields.",
+    link: "https://www.wits.ac.za"
+  },
+
+  // --- TVET COLLEGES ---
+  {
+    id: "sedibeng-tvet",
+    name: "Sedibeng TVET College",
+    type: "college",
+    province: "Gauteng",
+    status: "Open",
+    minAps: 15,
+    description: "Offers practical and vocational training in Engineering, Business Studies, and Utility Studies across multiple campuses.",
+    requirements: "Grade 9, 10, 11, or 12 depending on NATED (N1-N6) or NC(V) level choices.",
+    link: "https://www.sedibengtvet.co.za"
+  },
+  {
+    id: "swg-tvet",
+    name: "South West Gauteng TVET College",
+    type: "college",
+    province: "Gauteng",
+    status: "Open",
+    minAps: 15,
+    description: "Equipping learners with marketable vocational and occupational skills across Soweto and surrounding areas.",
+    requirements: "Matric pass (NSC) or Grade 9+ for NC(V) practical streams.",
+    link: "https://www.swgc.co.za"
+  },
+
+  // --- BURSARIES & FUNDING ---
+  {
+    id: "nsfas-2026",
+    name: "NSFAS Bursary Scheme",
+    type: "bursary",
+    province: "National",
+    status: "Open",
+    minAps: 0,
+    description: "Government financial aid funding registration, tuition, accommodation, books, and living allowances for public TVET & university students.",
+    requirements: "South African citizen with combined annual household income not exceeding R350,000 (or R600,000 for applicants with disabilities).",
+    link: "https://www.nsfas.org.za"
+  },
+  {
+    id: "funza-lushaka",
+    name: "Funza Lushaka Teaching Bursary",
+    type: "bursary",
+    province: "National",
+    status: "Open",
+    minAps: 26,
+    description: "Full service-contract bursary scheme covering tuition, accommodation, and stipend for students pursuing Bachelor of Education degrees.",
+    requirements: "South African citizen, under 30 years old, specializing in priority teaching subjects (Maths, Science, African Languages).",
+    link: "https://www.funzalushaka.doe.gov.za"
+  },
+
+  // --- NURSING COLLEGES ---
+  {
+    id: "gcon-nursing",
+    name: "Gauteng College of Nursing (GCON)",
+    type: "nursing",
+    province: "Gauteng",
+    status: "Closed",
+    minAps: 27,
+    description: "4-Year Diploma in Nursing offering comprehensive practical clinical experience across Gauteng state hospitals.",
+    requirements: "Matric exemption/diploma pass with Life Sciences / Biology (Level 4+), English (Level 4+), and Maths / Math Lit.",
+    link: "https://nursingintake.gauteng.gov.za"
+  },
+
+  // --- INTERNSHIPS ---
+  {
+    id: "dpsa-internships",
+    name: "DPSA Graduate Internship Programme",
+    type: "internship",
+    province: "National",
+    status: "Open",
+    minAps: 0,
+    description: "Government public sector graduate internships across national and provincial government departments.",
+    requirements: "Completed National Diploma or Degree in relevant fields. Unemployed South African graduates aged 18–35.",
+    link: "http://www.dpsa.gov.za/dpsa2g/vacancies.asp"
+  },
+  {
+    id: "transnet-internships",
+    name: "Transnet Graduate Development Programme",
+    type: "internship",
+    province: "National",
+    status: "Open",
+    minAps: 0,
+    description: "Structured practical workplace experience in Logistics, Supply Chain, Engineering, Finance, and IT.",
+    requirements: "Degree or Diploma from a recognized tertiary institution with a solid academic record.",
+    link: "https://www.transnet.net/Careers"
+  },
+
+  // --- SETAS & LEARNERSHIPS ---
+  {
+    id: "merseta-learnership",
+    name: "merSETA Artisan & Skills Learnerships",
+    type: "learnership",
+    province: "National",
+    status: "Open",
+    minAps: 0,
+    description: "Paid work-integrated learning in manufacturing, engineering, and related services leading to trade test certification.",
+    requirements: "Matric certificate with pure Mathematics and Physical Science, or N2 qualification.",
+    link: "https://www.merseta.org.za"
+  },
+  {
+    id: "inseta-learnership",
+    name: "INSETA Insurance & Financial Services Learnership",
+    type: "learnership",
+    province: "National",
+    status: "Open",
+    minAps: 0,
+    description: "12-month occupational learnership offering monthly stipends and formal qualifications in banking, wealth management, or short-term insurance.",
+    requirements: "Matric certificate with English and Maths / Maths Literacy. South African citizen under 35.",
+    link: "https://www.inseta.org.za"
+  }
+];
 ];
