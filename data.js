@@ -3,326 +3,378 @@ window.OPPORTUNITIES = [
   // UNIVERSITIES (PUBLIC)
   // ==========================================
   {
+    id: 1,
     name: "University of Johannesburg (UJ)",
     type: "university",
     province: "Gauteng",
+    minAps: 26,
     status: "Open",
-    closingDate: "31 October 2026 (12:00)",
+    closingDate: "31 October 2026",
     description: "A premier metropolitan university offering diverse undergraduate degrees with high employability rates.",
-    requirements: "NSC Bachelor's pass. APS 28+ depending on faculty. Free online application.",
-    link: "https://www.uj.ac.za/study/apply/"
+    requirements: "NSC Bachelor's pass. APS 26+ depending on faculty. Free online application.",
+    link: "https://www.uj.ac.za/study/apply/",
+    courses: [
+      { name: "Bachelor of Commerce (BCom) General", minAps: 28, requirements: "Maths Level 4 (50%+) or Math Lit Level 6 (70%+)" },
+      { name: "Bachelor of Arts (BA)", minAps: 26, requirements: "Languages Level 4 (50%+)" },
+      { name: "Bachelor of Science (BSc) Computer Science", minAps: 30, requirements: "Pure Maths Level 5 (60%+), Physical Sciences Level 4" },
+      { name: "National Diploma in Management", minAps: 24, requirements: "Diploma pass, Maths/Math Lit Level 3" }
+    ]
   },
   {
+    id: 2,
     name: "University of Mpumalanga (UMP)",
     type: "university",
     province: "Mpumalanga",
+    minAps: 20,
     status: "Open",
     closingDate: "30 November 2026",
     description: "Offers state-of-the-art undergraduate diplomas, Bachelor's degrees, and advanced programmes.",
     requirements: "NSC Bachelor's or Diploma pass with qualifying APS score. Late closing window.",
-    link: "https://www.ump.ac.za"
+    link: "https://www.ump.ac.za",
+    courses: [
+      { name: "Bachelor of Education (BEd) Foundation Phase", minAps: 22, requirements: "Language Level 4" },
+      { name: "Bachelor of Agriculture", minAps: 20, requirements: "Life Sciences or Agricultural Sciences Level 4" },
+      { name: "Diploma in ICT in Applications Development", minAps: 22, requirements: "Maths Level 3 or Math Lit Level 5" }
+    ]
   },
   {
+    id: 3,
     name: "Walter Sisulu University (WSU)",
     type: "university",
     province: "Eastern Cape",
+    minAps: 20,
     status: "Open",
     closingDate: "31 October 2026",
     description: "Comprehensive university focused on technological and career-oriented academic programmes.",
     requirements: "NSC pass with specific subject requirements. General closing extended to end of October.",
-    link: "https://www.wsu.ac.za"
+    link: "https://www.wsu.ac.za",
+    courses: [
+      { name: "Bachelor of Social Science", minAps: 20, requirements: "English Level 4" },
+      { name: "Diploma in Civil Engineering", minAps: 23, requirements: "Pure Maths Level 4, Physical Science Level 4" }
+    ]
   },
   {
+    id: 4,
     name: "University of Fort Hare (UFH)",
     type: "university",
     province: "Eastern Cape",
+    minAps: 22,
     status: "Open",
     closingDate: "31 October 2026",
     description: "Historic university renowned for strong law, management, and social science faculties.",
     requirements: "NSC pass with standard statutory university admission requirements.",
-    link: "https://www.ufh.ac.za"
+    link: "https://www.ufh.ac.za",
+    courses: [
+      { name: "Bachelor of Laws (LLB)", minAps: 30, requirements: "English Level 5 (60%+)" },
+      { name: "Bachelor of Commerce in Accounting", minAps: 26, requirements: "Maths Level 4" }
+    ]
   },
   {
+    id: 5,
     name: "Tshwane University of Technology (TUT)",
     type: "university",
     province: "Gauteng",
+    minAps: 18,
     status: "Open",
     closingDate: "Space-Dependent / Late Enquiries",
     description: "South Africa's largest residential higher education institution focusing on career-ready technical skills.",
     requirements: "NSC Diploma or Bachelor's pass. Subject marks dictate placement.",
-    link: "https://www.tut.ac.za"
+    link: "https://www.tut.ac.za",
+    courses: [
+      { name: "Bachelor of Geomatics", minAps: 26, requirements: "Pure Maths Level 4, Physical Sciences Level 4, English Level 4" },
+      { name: "National Diploma / Dip. Engineering Technology in Civil", minAps: 24, requirements: "Pure Maths Level 4, Physical Sciences Level 4" },
+      { name: "Diploma in Information Technology", minAps: 21, requirements: "Maths Level 3 or Math Lit Level 5" }
+    ]
   },
   {
+    id: 6,
     name: "University of Pretoria (UP)",
     type: "university",
     province: "Gauteng",
+    minAps: 30,
     status: "Closed",
     closingDate: "Closed (30 June 2026)",
     description: "Top research-intensive South African university with elite programmes in Law, Engineering, and Veterinary Science.",
     requirements: "Strict competitive APS requirements. Applications for the academic intake are closed.",
-    link: "https://www.up.ac.za"
+    link: "https://www.up.ac.za",
+    courses: [
+      { name: "Bachelor of Engineering (BEng) - Civil/Mechanical/Electrical", minAps: 35, requirements: "Pure Maths Level 6, Phys Science Level 6, English Level 5" },
+      { name: "Bachelor of Medicine and Surgery (MBChB)", minAps: 35, requirements: "Strict competitive entry subject thresholds" }
+    ]
   },
   {
-    name: "University of the Witwatersrand (WITS)",
+    id: 7,
+    name: "University of the Witwatersrand (Wits)",
     type: "university",
     province: "Gauteng",
+    minAps: 34,
     status: "Closed",
     closingDate: "Closed (30 September 2026)",
     description: "World-class research institution located in Johannesburg offering prestigious professional degrees.",
     requirements: "High APS scores and strict faculty-specific criteria. Intake applications are closed.",
-    link: "https://www.wits.ac.za"
+    link: "https://www.wits.ac.za/undergraduate/apply-to-wits/",
+    courses: [
+      { name: "BSc Computer Science", minAps: 38, requirements: "Pure Maths Level 6, English Level 5" },
+      { name: "Bachelor of Accounting Science (BAccSc)", minAps: 36, requirements: "Pure Maths Level 6" }
+    ]
   },
   {
+    id: 8,
     name: "University of Cape Town (UCT)",
     type: "university",
     province: "Western Cape",
+    minAps: 30,
     status: "Closed",
     closingDate: "Closed (31 July 2026)",
     description: "Consistently ranked as Africa's top university, offering elite degree options.",
     requirements: "Extremely competitive faculty entry points. Undergraduate window is closed.",
-    link: "https://www.uct.ac.za"
+    link: "https://www.uct.ac.za/apply",
+    courses: [
+      { name: "Bachelor of Business Science", minAps: 42, requirements: "Pure Maths Level 7 (80%+)" },
+      { name: "Bachelor of Architectural Studies", minAps: 35, requirements: "Portfolio review + Pure Maths Level 5" }
+    ]
   },
   {
+    id: 9,
     name: "Stellenbosch University (SU)",
     type: "university",
     province: "Western Cape",
+    minAps: 30,
     status: "Closed",
     closingDate: "Closed (31 July 2026)",
     description: "Leading public research university known for academic excellence and diverse faculty offerings.",
     requirements: "No late applications considered for 2027 intake.",
-    link: "https://www.sun.ac.za"
+    link: "https://www.sun.ac.za",
+    courses: [
+      { name: "BSc Actuarial Science", minAps: 41, requirements: "Pure Maths Level 7" }
+    ]
   },
   {
+    id: 10,
     name: "University of the Free State (UFS)",
     type: "university",
     province: "Free State",
+    minAps: 24,
     status: "Closed",
     closingDate: "Closed (30 September 2026)",
     description: "Multicampus institution offering a vibrant academic environment in Bloemfontein.",
     requirements: "Applications closed. No late undergraduate applications accepted.",
-    link: "https://www.ufs.ac.za"
+    link: "https://www.ufs.ac.za",
+    courses: [
+      { name: "Bachelor of Admin", minAps: 25, requirements: "Language Level 4" }
+    ]
+  },
+  {
+    id: 11,
+    name: "University of KwaZulu-Natal (UKZN)",
+    type: "university",
+    province: "KwaZulu-Natal",
+    minAps: 28,
+    status: "Closed",
+    closingDate: "Closed (30 September 2026)",
+    description: "Prestigious institution renowned for health sciences, agriculture, and humanities.",
+    requirements: "NSC Bachelor's pass with strict subject score minimums.",
+    link: "https://ukzn.ac.za",
+    courses: [
+      { name: "Bachelor of Nursing", minAps: 30, requirements: "Life Sciences Level 5" }
+    ]
+  },
+  {
+    id: 12,
+    name: "North-West University (NWU)",
+    type: "university",
+    province: "North West",
+    minAps: 22,
+    status: "Closed",
+    closingDate: "Closed (30 August 2026)",
+    description: "Multi-campus university offering dynamic study options across three campuses.",
+    requirements: "Minimum APS score requirements per faculty met prior to deadline.",
+    link: "https://www.nwu.ac.za",
+    courses: [
+      { name: "BEd Intermediate Phase Teaching", minAps: 24, requirements: "Language Level 4" }
+    ]
   },
 
   // ==========================================
   // TVET COLLEGES
   // ==========================================
   {
+    id: 13,
     name: "Tshwane North TVET College (TNC)",
-    type: "tvet",
+    type: "college",
     province: "Gauteng",
+    minAps: 14,
     status: "Closed",
     closingDate: "Closed (30 September 2026)",
     description: "Quality vocational and occupational education and training (NCV & Report 191/Nated).",
     requirements: "Grade 9, 10, 11, or 12 certificate depending on the chosen vocational level.",
-    link: "https://tnc.edu.za"
+    link: "https://tnc.edu.za",
+    courses: [
+      { name: "NCV Electrical Infrastructure Construction", minAps: 15, requirements: "Grade 9 pass with Math/Science" },
+      { name: "Nated Business Management N4-N6", minAps: 18, requirements: "Grade 12 certificate" }
+    ]
   },
   {
-    name: "Sedibeng TVET College",
-    type: "tvet",
+    id: 14,
+    name: "Tshwane South TVET College",
+    type: "college",
     province: "Gauteng",
+    minAps: 15,
+    status: "Open",
+    closingDate: "Ongoing / Walk-ins",
+    description: "Public TVET college providing NATED (N1-N6) engineering studies, business management, and practical trade skills.",
+    requirements: "Passed Grade 9 for N1 Engineering. Passed Grade 12 for Business Studies.",
+    link: "https://www.tsc.edu.za",
+    courses: [
+      { name: "N1-N3 Mechanical Engineering", minAps: 14, requirements: "Grade 9 Math & Science" },
+      { name: "NCV Finance, Economics and Accounting", minAps: 16, requirements: "Grade 9/10/11 pass" }
+    ]
+  },
+  {
+    id: 15,
+    name: "Sedibeng TVET College",
+    type: "college",
+    province: "Gauteng",
+    minAps: 15,
     status: "Open",
     closingDate: "Walk-ins / Enquire for Space",
     description: "Offers theoretical and practical training in engineering, business, and utility studies.",
     requirements: "Certified copy of ID, latest school results, and proof of residence.",
-    link: "https://www.sedcol.co.za"
+    link: "https://www.sedcol.co.za",
+    courses: [
+      { name: "NCV Civil Engineering & Building Construction", minAps: 15, requirements: "Grade 9+ pass" }
+    ]
   },
   {
+    id: 16,
     name: "South West Gauteng TVET College",
-    type: "tvet",
+    type: "college",
     province: "Gauteng",
+    minAps: 15,
     status: "Open",
     closingDate: "Check Portal Availability",
     description: "Equipping students with marketable vocational skills across multiple Gauteng campuses.",
     requirements: "Certified ID document, guardian details, and latest academic results.",
-    link: "https://swgtvet.co.za"
+    link: "https://swgtvet.co.za",
+    courses: [
+      { name: "NCV Office Administration", minAps: 15, requirements: "Grade 9/10/11" }
+    ]
   },
   {
+    id: 17,
     name: "False Bay TVET College",
-    type: "tvet",
+    type: "college",
     province: "Western Cape",
+    minAps: 15,
     status: "Open",
     closingDate: "Check Programme Availability",
     description: "Award-winning TVET college offering vocational, occupational, and skills programmes.",
     requirements: "Grade 9–12 pass with specific subject thresholds for engineering fields.",
-    link: "https://falsebaycollege.co.za"
+    link: "https://falsebaycollege.co.za",
+    courses: [
+      { name: "NCV Hospitality / Tourism", minAps: 15, requirements: "Grade 9 or 10 pass" }
+    ]
+  },
+
+  // ==========================================
+  // NURSING COLLEGES
+  // ==========================================
+  {
+    id: 18,
+    name: "Gauteng College of Nursing (GCON)",
+    type: "nursing",
+    province: "Gauteng",
+    minAps: 27,
+    status: "Closed",
+    closingDate: "Closed (31 July 2026)",
+    description: "4-Year Diploma in Nursing offering practical clinical experience in Gauteng state hospitals.",
+    requirements: "NSC with English (4), Life Sciences (4), and Mathematics (3) or Math Lit (4). Age limit: 35 years.",
+    link: "https://nursingintake.gauteng.gov.za",
+    courses: [
+      { name: "Diploma in Nursing (R171)", minAps: 27, requirements: "English Level 4, Life Sciences Level 4, Maths 3 / Math Lit 4" }
+    ]
+  },
+  {
+    id: 19,
+    name: "KwaZulu-Natal Department of Health Nursing",
+    type: "nursing",
+    province: "KwaZulu-Natal",
+    minAps: 25,
+    status: "Open",
+    closingDate: "Check Provincial Circular",
+    description: "Public nursing training program across major KZN nursing campuses.",
+    requirements: "NSC Bachelor/Diploma pass with adequate achievement levels in Life Sciences and English.",
+    link: "http://www.kznhealth.gov.za",
+    courses: [
+      { name: "General Nursing and Midwifery Diploma", minAps: 25, requirements: "Life Sciences Level 4, English Level 4" }
+    ]
   },
 
   // ==========================================
   // BURSARIES & FUNDING
   // ==========================================
   {
-    name: "NSFAS Bursary",
+    id: 20,
+    name: "NSFAS Bursary Scheme",
     type: "bursary",
     province: "National",
+    minAps: 0,
     status: "Open",
-    closingDate: "Expected Nov/Dec 2026",
-    description: "Government bursary covering full tuition, accommodation, study material, and living allowances.",
-    requirements: "South African citizen, combined gross household income under R350,000 per year.",
-    link: "https://www.nsfas.org.za"
+    closingDate: "Expected Jan 2027",
+    description: "Government financial aid funding tertiary tuition, accommodation, books, and living allowances for deserving learners.",
+    requirements: "South African Citizen. Combined household income must not exceed R350,000 per annum (R600,000 for students with disabilities).",
+    link: "https://www.nsfas.org.za",
+    courses: [
+      { name: "Full Comprehensive Study Grant (All Public Fields)", minAps: 0, requirements: "Acceptance into any public university or TVET college" }
+    ]
   },
   {
+    id: 21,
     name: "Funza Lushaka Bursary Programme",
     type: "bursary",
     province: "National",
+    minAps: 24,
     status: "Open",
     closingDate: "Annual Window",
     description: "Multi-year bursary for students pursuing a Bachelor of Education (BEd) or recognized teaching PGCE.",
     requirements: "Strong academic track record, commitment to teach at a public school upon graduation.",
-    link: "https://www.funzalushaka.doe.gov.za"
+    link: "https://www.funzalushaka.doe.gov.za",
+    courses: [
+      { name: "BEd Teaching Bursary (Priority Subjects: Maths, Science, Languages)", minAps: 24, requirements: "Admission to an approved BEd program" }
+    ]
   },
   {
-    name: "ISFAP Bursary (Funding for the 'Missing Middle')",
+    id: 22,
+    name: "ISFAP Bursary (Missing Middle Funding)",
     type: "bursary",
     province: "National",
+    minAps: 28,
     status: "Open",
     closingDate: "Check Partner University Dates",
     description: "Comprehensive funding model for students from households earning between R350,000 and R600,000 annually.",
     requirements: "South African citizen, registration at a participating ISFAP university for scarce skills courses.",
-    link: "https://www.isfap.org.za"
-  }
-window.OPPORTUNITIES = [
-  // --- UNIVERSITIES ---
-  {
-    id: "uct-2026",
-    name: "University of Cape Town (UCT)",
-    type: "university",
-    province: "Western Cape",
-    status: "Open",
-    minAps: 30,
-    description: "South Africa's top-ranking research university offering undergraduate degrees across Commerce, Engineering, Humanities, Health Sciences, Law, and Science.",
-    requirements: "NSC Bachelor's Pass. Minimum APS 30+. Compulsory English & Mathematics/Maths Literacy (depending on faculty requirement).",
-    link: "https://www.uct.ac.za"
+    link: "https://www.isfap.org.za",
+    courses: [
+      { name: "Scarce Skills Funding (Engineering, Medicine, Actuarial, IT)", minAps: 30, requirements: "Household income between R350k - R600k" }
+    ]
   },
+
+  // ==========================================
+  // LEARNERSHIPS & INTERNSHIPS
+  // ==========================================
   {
-    id: "tut-2026",
-    name: "Tshwane University of Technology (TUT)",
-    type: "university",
-    province: "Gauteng",
-    status: "Open",
+    id: 23,
+    name: "Capitec Bank ICT Learnership",
+    type: "learnership",
+    province: "National",
     minAps: 20,
-    description: "Leading university of technology offering career-focused diplomas and degrees in Geomatics, Engineering, ICT, Management, and Arts.",
-    requirements: "NSC Diploma or Bachelor's Pass. Minimum APS 20–28 depending on course choices.",
-    link: "https://www.tut.ac.za"
-  },
-  {
-    id: "wits-2026",
-    name: "University of the Witwatersrand (Wits)",
-    type: "university",
-    province: "Gauteng",
     status: "Open",
-    minAps: 34,
-    description: "Premier university in Johannesburg renowned for Engineering, Health Sciences, Mining, Business, and Science qualifications.",
-    requirements: "NSC Bachelor's Pass. High academic requirements in Maths & Physical Sciences for STEM fields.",
-    link: "https://www.wits.ac.za"
-  },
-
-  // --- TVET COLLEGES ---
-  {
-    id: "sedibeng-tvet",
-    name: "Sedibeng TVET College",
-    type: "college",
-    province: "Gauteng",
-    status: "Open",
-    minAps: 15,
-    description: "Offers practical and vocational training in Engineering, Business Studies, and Utility Studies across multiple campuses.",
-    requirements: "Grade 9, 10, 11, or 12 depending on NATED (N1-N6) or NC(V) level choices.",
-    link: "https://www.sedibengtvet.co.za"
-  },
-  {
-    id: "swg-tvet",
-    name: "South West Gauteng TVET College",
-    type: "college",
-    province: "Gauteng",
-    status: "Open",
-    minAps: 15,
-    description: "Equipping learners with marketable vocational and occupational skills across Soweto and surrounding areas.",
-    requirements: "Matric pass (NSC) or Grade 9+ for NC(V) practical streams.",
-    link: "https://www.swgc.co.za"
-  },
-
-  // --- BURSARIES & FUNDING ---
-  {
-    id: "nsfas-2026",
-    name: "NSFAS Bursary Scheme",
-    type: "bursary",
-    province: "National",
-    status: "Open",
-    minAps: 0,
-    description: "Government financial aid funding registration, tuition, accommodation, books, and living allowances for public TVET & university students.",
-    requirements: "South African citizen with combined annual household income not exceeding R350,000 (or R600,000 for applicants with disabilities).",
-    link: "https://www.nsfas.org.za"
-  },
-  {
-    id: "funza-lushaka",
-    name: "Funza Lushaka Teaching Bursary",
-    type: "bursary",
-    province: "National",
-    status: "Open",
-    minAps: 26,
-    description: "Full service-contract bursary scheme covering tuition, accommodation, and stipend for students pursuing Bachelor of Education degrees.",
-    requirements: "South African citizen, under 30 years old, specializing in priority teaching subjects (Maths, Science, African Languages).",
-    link: "https://www.funzalushaka.doe.gov.za"
-  },
-
-  // --- NURSING COLLEGES ---
-  {
-    id: "gcon-nursing",
-    name: "Gauteng College of Nursing (GCON)",
-    type: "nursing",
-    province: "Gauteng",
-    status: "Closed",
-    minAps: 27,
-    description: "4-Year Diploma in Nursing offering comprehensive practical clinical experience across Gauteng state hospitals.",
-    requirements: "Matric exemption/diploma pass with Life Sciences / Biology (Level 4+), English (Level 4+), and Maths / Math Lit.",
-    link: "https://nursingintake.gauteng.gov.za"
-  },
-
-  // --- INTERNSHIPS ---
-  {
-    id: "dpsa-internships",
-    name: "DPSA Graduate Internship Programme",
-    type: "internship",
-    province: "National",
-    status: "Open",
-    minAps: 0,
-    description: "Government public sector graduate internships across national and provincial government departments.",
-    requirements: "Completed National Diploma or Degree in relevant fields. Unemployed South African graduates aged 18–35.",
-    link: "http://www.dpsa.gov.za/dpsa2g/vacancies.asp"
-  },
-  {
-    id: "transnet-internships",
-    name: "Transnet Graduate Development Programme",
-    type: "internship",
-    province: "National",
-    status: "Open",
-    minAps: 0,
-    description: "Structured practical workplace experience in Logistics, Supply Chain, Engineering, Finance, and IT.",
-    requirements: "Degree or Diploma from a recognized tertiary institution with a solid academic record.",
-    link: "https://www.transnet.net/Careers"
-  },
-
-  // --- SETAS & LEARNERSHIPS ---
-  {
-    id: "merseta-learnership",
-    name: "merSETA Artisan & Skills Learnerships",
-    type: "learnership",
-    province: "National",
-    status: "Open",
-    minAps: 0,
-    description: "Paid work-integrated learning in manufacturing, engineering, and related services leading to trade test certification.",
-    requirements: "Matric certificate with pure Mathematics and Physical Science, or N2 qualification.",
-    link: "https://www.merseta.org.za"
-  },
-  {
-    id: "inseta-learnership",
-    name: "INSETA Insurance & Financial Services Learnership",
-    type: "learnership",
-    province: "National",
-    status: "Open",
-    minAps: 0,
-    description: "12-month occupational learnership offering monthly stipends and formal qualifications in banking, wealth management, or short-term insurance.",
-    requirements: "Matric certificate with English and Maths / Maths Literacy. South African citizen under 35.",
-    link: "https://www.inseta.org.za"
+    closingDate: "15 December 2026",
+    description: "12-month structured skills program combining classroom learning with paid workplace experience in IT and Banking.",
+    requirements: "SA Citizen aged 18-34. Grade 12 Certificate with English & Pure Maths / Mathematical Literacy.",
+    link: "https://www.capitecbank.co.za/about-us/careers/",
+    courses: [
+      { name: "National Certificate in IT / Systems Development NQF Level 5", minAps: 20, requirements: "Matric pass with Mathematics or Mathematical Literacy" }
+    ]
   }
-];
 ];
